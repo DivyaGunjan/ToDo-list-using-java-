@@ -1,0 +1,23 @@
+import random
+
+if __name__ == '__main__':
+    attempts = 1
+    colors = ["Red", "Blue", "White", "Black", "Green", "Yellow", "Pink", "Orange", "Purple", "Brown"]
+    normalized_colors = [color.lower() for color in colors]  # Normalize the case of the colors in the list
+    
+    while True:
+        paint = input("Please enter the color: ").strip().lower()  # Normalize the user input to lowercase and strip whitespace
+        if paint in normalized_colors:
+            random_color = random.choice(colors).lower()  # Pick a random color and normalize it to lowercase
+            if random_color == paint:
+                print("Match the color!")
+                print("Number of Attempts:", attempts)
+                print(f"Selected color: {random_color.capitalize()}")
+                break  # Exit the loop if the colors match
+            else:
+                print("Different color, try again.\n")
+                print(f"Selected color: {random_color.capitalize()}")
+                attempts += 1
+        else:
+            print("Invalid color given. Please enter a valid color from the list.")
+            attempts += 1
